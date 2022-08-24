@@ -90,10 +90,10 @@ module.exports = function (app, order) {
         const data = await Order.findAll({
             // raw: true,
             where: {
-                user_id: '55'
+                user_id: '11'
             }
         })
-        let d = data[0].dataValues
+        let d = data
         console.log(d)
         res.render('products', {
             data: d

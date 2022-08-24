@@ -11,13 +11,12 @@
     <input class="search" />
 
 
-  <% for (const order in data) { %>
-    <ul class="list"><%= order.order_id %> </ul>
-    <% for (const key in order) { %>
-     <li><%= order.order_id %>
-      <h3 class="name"><%= order[key] %></h3>
-      <% } %>
+  <% for (const i in data) { %>
+    <ul class="list">ORDER NR <%= data[i].dataValues.order_id %>  </ul>
+    <% for (const key in data[i].dataValues) { %>
+     <li><%= data[i].dataValues[key] %> dół
        <p class="email"></p>
+       <% } %>
      </li>
     </ul>
   </div>    
