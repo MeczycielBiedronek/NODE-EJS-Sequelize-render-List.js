@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Book to DataBase</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <h1><%= message %> </h1>
+    <h2>New job</h2>
+    <form id="addorder" name="addorder" method="post" action="/addorder">
+      <label for="user_id">user id: </label>
+            <% if (user) { %>
+              <input name="user_id" type="text" value="<%= user.id %> "/>
+            <% } else {  %>
+              <input name="user_id" type="text" />
+            <% } %> 
+        <label for="transfer_type">transfer type:</label>
+        <select id="transfer_type" name="transfer_type">
+          <option value="website">website</option>
+          <option value="ftp">FTP</option>
+          <option value="download_link">download link</option>
+          <option value="other">other</option>
+        </select> 
+
+        <label for="link">paste link here: </label>
+        <input name="link" type="text" />
+
+        <label for="order_description">order description: </label>
+        <input name="order_description" type="text" />
+
+        <label for="output_file_format">output file format:</label>
+        <select id="output_file_format" name="output_file_format">
+          <option value="JPG">JPG</option>
+          <option value="PNG">PNG</option>
+          <option value="TIF">TIF</option>
+          <option value="PSD">PSD</option>
+        </select> 
+
+        <label for="clipping_options">clipping options:</label>
+        <select id="clipping_options" name="clipping_options">
+          <option value="transparent background">transparent background</option>
+          <option value="change to white">change to white</option>
+          <option value="clipping path">clipping path only</option>
+          <option value="mask">mask</option>
+        </select> 
+
+          <label for="additional_options_retouch">retouch</label><br>
+            <input type="checkbox" id="additional_options_retouch" name="additional_options_retouch" value="1">
+          <label for="additional_options_light_color">fix color and contrast </label><br>
+            <input type="checkbox" id="additional_options_light_color" name="additional_options_light_color" value="1">
+
+          <label for="additional_options_crop">Crop image</label>
+            <input type="checkbox" id="additional_options_crop" name="additional_options_crop" value="1">
+
+          <label for="additional_options_shadow">add shadow</label>
+            <input type="checkbox" id="additional_options_shadow" name="additional_options_shadow" value="1">
+
+
+        <input class="btn" type="submit" value="Add Book" />
+    </form>
+        <h3>
+    <a href="/logout">Log out</a>
+    </h3>
+</body>
+
+</html>
