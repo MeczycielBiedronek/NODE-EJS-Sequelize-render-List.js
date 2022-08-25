@@ -5,28 +5,30 @@ module.exports = function (app, order) {
 
     app.get('/addorder', routesController.addorder)
     // app.get('/myorders', routesController.myorders)
-    app.get('/myorders', (req, res) => {
+    app.get('/myorders', async (req, res) => {
         const Order = order
-        Order.findAll({
+        const ordersList = await Order.findAll({
             // raw: true,
             where: {
                 user_id: '55'
             }
-        }).then(res => {
-            var item = res
         })
+        let ol = ordersList
+        // let username= req.user.firstname
+        let username = !req.user ? req.body.user_id : req.user.firstname
+
         res.render('myorders', {
             success: req.flash('success'),
             username: req.flash('user'),
-            message: req.flash('error'),
-            tabledata: item
+            message: username,
+            data: ol
         })
     })
 
 
 
     /// POST
-    app.post('/addorder', (req, res) => {
+    app.post('/addorder', async function (req, res) {
         const Order = order
         var data = formsData.ordersform(req, res) // form to sql relation
 
@@ -34,13 +36,23 @@ module.exports = function (app, order) {
             console.log(res)
         }).catch((error) => {
             console.error('Failed to create a new record : ', error);
-        });
+        })
+        req.flash('success', 'Job created')
+        const ordersList = await Order.findAll({
+            // raw: true,
+            where: {
+                user: req.user.email
+            }
+        })
+        let ol = ordersList // results of findAll
+        let username = !req.user ? req.body.user_id : req.user.firstname
+
 
         res.render('myorders', {
             success: req.flash('success'),
-            username: req.flash('user'),
+            username: username,
             message: req.flash('error'),
-            tabledata: tabledata
+            data: ol
         })
     })
 

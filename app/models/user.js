@@ -8,21 +8,29 @@ module.exports = function (sequelize, Sequelize) {
             type: Sequelize.INTEGER
         },
 
-        firstname: {
+        firs_last_name: {
             type: Sequelize.STRING,
             notEmpty: true
         },
 
-        lastname: {
+        comp_name: {
             type: Sequelize.STRING,
             notEmpty: true
         },
 
-        username: {
+        address_line1: {
             type: Sequelize.TEXT
         },
 
-        about: {
+        address_line2: {
+            type: Sequelize.TEXT
+        },
+
+        address_line3: {
+            type: Sequelize.TEXT
+        },
+
+        tex_number: {
             type: Sequelize.TEXT
         },
 

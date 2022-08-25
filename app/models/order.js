@@ -8,8 +8,8 @@ var Order = sequelize.define("order", {
         autoIncrement: true,
         primaryKey: true
     },
-    user_id: {
-        type: Sequelize.INTEGER,
+    user_email: {
+        type: Sequelize.STRING,
         allowNull: false
     },
     order_type: {
@@ -26,7 +26,7 @@ var Order = sequelize.define("order", {
     },
     number_of_files: {
         type: Sequelize.INTEGER,
-        // allowNull: false
+        allowNull: false
     },
     order_price: {
         type: Sequelize.INTEGER,
@@ -35,6 +35,10 @@ var Order = sequelize.define("order", {
         type: Sequelize.STRING,
     },
     payment_status: {
+        type: Sequelize.ENUM('yes', 'no'),
+        defaultValue: 'no'
+    },    
+    invoice_link: {
         type: Sequelize.STRING,
     },
     order_description: {
@@ -47,16 +51,20 @@ var Order = sequelize.define("order", {
         type: Sequelize.STRING,
     },
     additional_options_retouch: {
-        type: Sequelize.STRING,
+        type: Sequelize.ENUM('yes', 'no'),
+            defaultValue: 'no'
     },
     additional_options_light_color: {
-        type: Sequelize.STRING,
+        type: Sequelize.ENUM('yes', 'no'),
+            defaultValue: 'no'
     },
     additional_options_crop: {
-        type: Sequelize.STRING,
+        type: Sequelize.ENUM('yes', 'no'),
+            defaultValue: 'no'
     },
     additional_options_shadow: {
-        type: Sequelize.STRING,
+        type: Sequelize.ENUM('yes', 'no'),
+        defaultValue: 'no'
     },
     ready_package_link: {
         type: Sequelize.STRING,

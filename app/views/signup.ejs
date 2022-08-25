@@ -12,12 +12,31 @@
     <form id="signup" name="signup" method="post" action="/signup">
         <label for="email">Email Address: </label>
         <input class="text" name="email" type="email" />
-        <label for="firstname">First Name: </label>
-        <input name="firstname" type="text" />
-        <label for="lastname">Last Name: </label>
-        <input name="lastname" type="text" />
+        <label for="first_last_name">Name and surname : </label>
+        <input name="first_last_name" type="text" />
+
+        <fieldset>
+            <legend>Invoicing data:</legend>
+        <label for="comp_name">Company Name: </label>
+        <input name="comp_name" type="text" />
+        <br>
+        <label for="address_line1:">City: </label>
+        <input name="address_line1:" type="text" />
+        <br>
+        <label for="address_line2">Street: </label>
+        <input name="address_line2" type="text" />
+        <br>
+        <label for="address_line3">Post: </label>
+        <input name="address_line3" type="text" />
+        <br>
+        <label for="tax_number">Tax number: </label>
+        <input name="tax_number" type="text" />
+
+        </fieldset>
         <label for="password">Password: </label>
         <input name="password" type="password" />
+        <label for="password">Repeat Password: </label>
+        <input name="rep_password" type="rep_password" />
         <input class="btn" type="submit" value="Sign Up" />
     </form>
     <h3>
