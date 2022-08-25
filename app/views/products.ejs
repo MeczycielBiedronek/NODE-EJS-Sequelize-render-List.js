@@ -13,14 +13,21 @@
 
   <% for (const i in data) { %>
     <ul class="list">ORDER NR <%= data[i].dataValues.order_id %>  </ul>
-    <% for (const key in data[i].dataValues) { %>
-     <li><%= data[i].dataValues[key] %> dół
-       <p class="email"></p>
-       <% } %>
-     </li>
+    <li>Created at <%= data[i].dataValues.createdAt %></li>
+    <li>Number of files at <%= data[i].dataValues.number_of_files %></li>
+    <li>Order description at <%= data[i].dataValues.order_description %></li>
+    <li>Retouch <%= data[i].dataValues.additional_options_retouch %></li>
+    <li>Light/color correction <%= data[i].dataValues.additional_options_light_color %></li>
+    <li>Crop image <%= data[i].dataValues.additional_options_crop %></li>
+    <li>Add shadow <%= data[i].dataValues.additional_options_shadow %></li>
+    <li>Order status <%= data[i].dataValues.order_status %></li>
+    <li>Completion date <%= data[i].dataValues.completion_date %></li>
+    <li>Link <%= data[i].dataValues.link %></li>
+
     </ul>
+  <% } %>
   </div>    
-    <% } %>
+
 
 
 
