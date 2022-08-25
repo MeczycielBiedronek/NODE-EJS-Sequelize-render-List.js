@@ -3,6 +3,7 @@ var exports = module.exports = {};
 /// GET
 
 exports.addorder = function (req, res) {
+    console.log(req.user.email + 'loggin req.user and user in addorder')
     res.render('addorder', {
         message: req.flash('error'),
         user: req.user

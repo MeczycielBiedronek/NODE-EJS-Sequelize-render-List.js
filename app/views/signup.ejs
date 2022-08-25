@@ -11,7 +11,7 @@
     <h2>Passport With Sequelize and MySQL</h2>
     <form id="signup" name="signup" method="post" action="/signup">
         <label for="email">Email Address: </label>
-        <input class="text" name="email" type="email" />
+        <input class="text" name="email" type="email" required/>
         <label for="first_last_name">Name and surname : </label>
         <input name="first_last_name" type="text" />
 
@@ -20,8 +20,8 @@
         <label for="comp_name">Company Name: </label>
         <input name="comp_name" type="text" />
         <br>
-        <label for="address_line1:">City: </label>
-        <input name="address_line1:" type="text" />
+        <label for="address_line1">City: </label>
+        <input name="address_line1" type="text" />
         <br>
         <label for="address_line2">Street: </label>
         <input name="address_line2" type="text" />
@@ -34,9 +34,9 @@
 
         </fieldset>
         <label for="password">Password: </label>
-        <input name="password" type="password" />
-        <label for="password">Repeat Password: </label>
-        <input name="rep_password" type="rep_password" />
+        <input name="password" type="password" required/>
+        <label for="rep_password">Repeat Password: </label>
+        <input name="rep_password" type="password" required/>
         <input class="btn" type="submit" value="Sign Up" />
     </form>
     <h3>

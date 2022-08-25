@@ -50,8 +50,12 @@ module.exports = function (passport, user) {
                     {
                         email: email,
                         password: userPassword,
-                        firstname: req.body.firstname,
-                        lastname: req.body.lastname
+                        first_last_name: req.body.first_last_name,
+                        comp_name: req.body.comp_name,
+                        address_line1: req.body.address_line1,
+                        address_line2: req.body.address_line2,
+                        address_line3: req.body.address_line3,
+                        tax_number: req.body.tax_number
                     };
 
 

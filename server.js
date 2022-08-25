@@ -40,7 +40,7 @@ app.set('view engine', '.ejs');
 
 require('./app/config/passport/passport.js')(passport, models.user); //////// USER data
 
-
+require('./app/routes/routes')(app, models)
 
 
 //Sync Database
@@ -54,7 +54,7 @@ models.sequelize.sync()
 //Routes
 const authRoute = require('./app/routes/auth.js')(app, passport);
 
-require('./app/routes/routes')(app, models.order)
+
 
 
 app.listen(5000, function (err) {

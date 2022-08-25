@@ -1,7 +1,7 @@
 var exports = module.exports = {}
 
 exports.ordersform = function(req, res){
-    var data = {user_id: req.body.user_id,
+    var data = {user_email: req.body.user_email,
     transfer_type: req.body.transfer_type,
     link: req.body.link,
     // create_date: new Date().toISOString().slice(0, 19).replace('T', ' '),            no need (created at in DB table)

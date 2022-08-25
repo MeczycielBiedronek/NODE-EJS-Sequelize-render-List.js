@@ -10,7 +10,8 @@ exports.signin = function(req, res) {
 };
 
 exports.dashboard = function(req, res) {
-    let username= req.user.firstname
+    console.log(req.user.email + 'loggin user email in dashboard')
+    let username= req.user.email
     res.render('dashboard', 
     { 
         success: req.flash('success'),

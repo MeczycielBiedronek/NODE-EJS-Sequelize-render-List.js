@@ -9,11 +9,11 @@
     <h1><%= message %> </h1>
     <h2>New job</h2>
     <form id="addorder" name="addorder" method="post" action="/addorder">
-      <label for="user_id">user id: </label>
+      <label for="user_email">email: </label>
             <% if (user) { %>
-              <input name="user_id" type="text" value="<%= user.id %> "/>
+              <input name="user_email" type="text" value="<%= user.email %>" required/>
             <% } else {  %>
-              <input name="user_id" type="text" />
+              <input name="user_email" type="text" required/>
             <% } %> 
         <label for="transfer_type">transfer type:</label>
         <select id="transfer_type" name="transfer_type">

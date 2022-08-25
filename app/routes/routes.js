@@ -1,26 +1,26 @@
 var routesController = require('../controllers/routesController.js');
 var formsData = require('./forms/formstosql.js')
 
-module.exports = function (app, order) {
-
+module.exports = function (app, models) {
+    const Order = models.order
     app.get('/addorder', routesController.addorder)
     // app.get('/myorders', routesController.myorders)
     app.get('/myorders', async (req, res) => {
-        const Order = order
+        
         const ordersList = await Order.findAll({
             // raw: true,
             where: {
-                user_id: '55'
+                user_email: req.user.email
             }
         })
         let ol = ordersList
         // let username= req.user.firstname
-        let username = !req.user ? req.body.user_id : req.user.firstname
-
+        let loggedEmail = !req.user ? req.body.user_email : req.user.email
+        
         res.render('myorders', {
             success: req.flash('success'),
             username: req.flash('user'),
-            message: username,
+            loggedEmail: loggedEmail,
             data: ol
         })
     })
@@ -29,28 +29,27 @@ module.exports = function (app, order) {
 
     /// POST
     app.post('/addorder', async function (req, res) {
-        const Order = order
+        
         var data = formsData.ordersform(req, res) // form to sql relation
-
         Order.create(data).then(res => {
-            console.log(res)
         }).catch((error) => {
             console.error('Failed to create a new record : ', error);
         })
         req.flash('success', 'Job created')
+        
         const ordersList = await Order.findAll({
             // raw: true,
             where: {
-                user: req.user.email
+                user_email: req.body.user_email
             }
         })
         let ol = ordersList // results of findAll
-        let username = !req.user ? req.body.user_id : req.user.firstname
+        let loggedEmail = !req.user ? req.body.user_email : req.user.first_last_name
 
 
         res.render('myorders', {
             success: req.flash('success'),
-            username: username,
+            loggedEmail: loggedEmail,
             message: req.flash('error'),
             data: ol
         })
@@ -79,37 +78,4 @@ module.exports = function (app, order) {
     //     return res.send(req.dataFromMiddleware1);
     //   })
 
-
-
-    app.get('/products', async function (req, res) {
-        const Order = order
-        const data = await Order.findAll({
-            // raw: true,
-            where: {
-                user_id: '55'
-            }
-        })
-        let d = data[0].dataValues
-        console.log(d)
-        res.render('products', {
-            data: d
-        });
-
-    })
-
-    app.get('/test', async function (req, res) {
-        const Order = order
-        const data = await Order.findAll({
-            // raw: true,
-            where: {
-                user_id: '11'
-            }
-        })
-        let d = data
-        console.log(d)
-        res.render('products', {
-            data: d
-        });
-
-    })
 }

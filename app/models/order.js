@@ -26,7 +26,8 @@ var Order = sequelize.define("order", {
     },
     number_of_files: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        defaultValue: 1
     },
     order_price: {
         type: Sequelize.INTEGER,
