@@ -15,12 +15,12 @@ module.exports = function (app, models) {
         })
         let ol = ordersList
         // let username= req.user.firstname
-        let loggedEmail = !req.user ? req.body.user_email : req.user.email
+        let logged_email = !req.user ? req.body.user_email : req.user.email
         
         res.render('myorders', {
             success: req.flash('success'),
             username: req.flash('user'),
-            loggedEmail: loggedEmail,
+            logged_email: logged_email,
             data: ol
         })
     })
@@ -44,12 +44,12 @@ module.exports = function (app, models) {
             }
         })
         let ol = ordersList // results of findAll
-        let loggedEmail = !req.user ? req.body.user_email : req.user.first_last_name
+        let logged_email = !req.user ? req.body.user_email : req.user.email
 
 
         res.render('myorders', {
             success: req.flash('success'),
-            loggedEmail: loggedEmail,
+            logged_email: logged_email,
             message: req.flash('error'),
             data: ol
         })
