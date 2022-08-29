@@ -37,11 +37,7 @@ app.set('views', './app/views');
 app.set('view engine', '.ejs');
 
 
-
 require('./app/config/passport/passport.js')(passport, models.user); //////// USER data
-
-
-
 
 //Sync Database
 models.sequelize.sync()
